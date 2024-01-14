@@ -19,8 +19,6 @@ class Task(models.Model):
 
 class SubTask(models.Model):
     id = models.AutoField(primary_key=True)
-    title = models.CharField(max_length=100)
-    task = models.ForeignKey(Task, on_delete=models.CASCADE, related_name='subtasks')
     teams = models.ManyToManyField(Team, related_name='subtasks')
     is_completed = models.BooleanField(default=False)
     completed_date = models.DateTimeField(null=True, blank=True)
